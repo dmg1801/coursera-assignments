@@ -1,0 +1,16 @@
+<div>
+  <ol>
+    <br>
+    <br>
+    <h3>List of found Items</h3>
+    <p ng-if="emptySearch"><span class="identity">No matches found</span> - Please try again with a different search term</p>
+    <li ng-repeat="item in foundItems">
+      <span class="identity">ID number:</span> {{item.id}}<br>
+      <span class="identity">Short Name:</span> {{item.short_name}}<br>
+      <span class="identity">Name:</span> {{item.name}}<br>
+      <span class="identity">Description:</span> {{item.description}}<br>
+      <button ng-click="onRemove({index: $index});">Don't want this one!</button><br>
+    </li>
+    <br>
+  </ol>
+</div>
