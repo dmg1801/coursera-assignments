@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .error {color: red;}
+      .success {color: green;}
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="app.js"></script>
@@ -22,8 +24,8 @@
          <div class="form-group">
              <button class="btn btn-default" ng-click="countItems()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
-           {{message}}
+         <div class="message" ng-class="color_message">
+             {{message}}
          </div>
    </div>
   <!-- <script id="__bs_script__">//<![CDATA[
