@@ -1,7 +1,7 @@
 <ul>
-  <li class="" ng-repeat="item in $ctrl.item">
-   <span>{{item.short_name}}</span><br>
-   <span>{{item.name}}</span><br>
+  <li ng-repeat="item in $ctrl.item">
+   <span class="bold_letter">{{item.name}}</span>
+    <span class="green_letter"> ( {{item.short_name}} )</span><br>
    <span>{{item.description}}</span><br>
   </li>
 </ul>

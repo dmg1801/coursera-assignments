@@ -17,3 +17,12 @@ body {
 .active {
   font-weight: bold;
 }
+
+.bold_letter{
+  font-weight: bold;
+}
+
+.green_letter{
+  font-weight: bold;
+  color: green;
+}
