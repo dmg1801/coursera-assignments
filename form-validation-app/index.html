@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="SimpleFormsApp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Simple Form Validation</title>
+  </head>
+  <body ng-controller="RegistrationController as reg">
+    <h1>Simple Form Validation</h1>
+
+    <fieldset>
+      <legend>Registration</legend>
+      <form name='regForm' novalidate>
+
+        <input type="text" name="username" placeholder="enter name"
+          ng-model="reg.user.username"
+          required
+          minlength="4"
+          ng-maxlength="10">
+          {{ reg.user.username }}
+          <br>
+          <span
+            ng-if="(regForm.username.$error.minlength || regForm.username.$error.required) && regForm.username.$touched">
+            User name must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.username.$error.maxlength && regForm.username.$touched">
+            User name must not be longer than 10 characters
+          </span>
+          <br>
+
+        <input type="text" name="userlastname" placeholder="enter lastname"
+          ng-model="reg.user.userlastname"
+          required
+          minlength="4"
+          ng-maxlength="10">
+          {{ reg.user.userlastname }}
+          <span
+            ng-if="(regForm.userlastname.$error.minlength || regForm.userlastname.$error.required) && regForm.userlastname.$touched">
+            User last-name must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.userlastname.$error.maxlength && regForm.userlastname.$touched">
+            User last-name must not be longer than 10 characters
+          </span>
+          <br>
+
+        <input type="email" name="email" placeholder="Email"
+          ng-model="reg.user.email"
+          required>
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+          ng-model="reg.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+        <input type="text" name="short_name" placeholder="enter short name"
+          ng-model="reg.user.short_name"
+          required
+          minlength="1"
+          ng-maxlength="4">
+          {{ reg.user.short_name }}
+          <span
+            ng-if="(regForm.short_name.$error.minlength || regForm.short_name.$error.required) && regForm.short_name.$touched">
+            dish short-name must be at least 2 characters long. Ex: L1, A1, B1
+          </span>
+          <span ng-if="regForm.short_name.$error.maxlength && regForm.short_name.$touched">
+            Username must not be longer than 4 characters
+          </span>
+          <br>
+
+        <button
+          ng-disabled="regForm.$invalid"
+          ng-click="reg.submit(reg.user.short_name)">Submit</button>
+
+          <div style="margin-top: 10px;">
+            Form valid? {{ regForm.$valid }}
+          </div>
+      </form>
+    </fieldset>
+
+    <div id="info" ng-if="reg.completed">
+    <span class="bold">Name: </span>{{ reg.user.username}} <br>
+    <span class="bold">Last-name: </span>{{ reg.user.userlastname}} <br>
+    <span class="bold">Telephone: </span><br>
+    <span class="bold">E-mail: </span>{{ reg.user.email}}<br>
+    <span class="bold">Favorite dish: </span>{{ reg.user.short_name}}<br>
+
+        <span class="bold">Below you can see the description of your favorite dish:</span><br>
+        <span class="bold">Name: </span> {{reg.category_item.id}} - {{ reg.category_item.name}}:<br>
+        <span class="bold">Description: </span>{{reg.category_item.description}} <br>
+        <span class="bold">Price large: </span>{{reg.category_item.price_large}} <br>
+        <span class="bold">Price small: </span>{{reg.category_item.price_small}} <br>
+      </div>
+    </div>
+
+    <script src="lib/angular.min.js"></script>
+    <script src="src/app.js"></script>
+
+  </body>
+</html>
