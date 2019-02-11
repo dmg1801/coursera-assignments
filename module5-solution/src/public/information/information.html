@@ -1,0 +1,32 @@
+<!-- INFORMATION TEMPLATE -->
+<div class="alignBox">
+
+  <h3>USER INFORMATION</h3>
+
+  <div ng-if="show.showcontent" class="itemsToDisplay">
+      <span>Name: </span>{{ show.infouser.username}} <br>
+      <span>Last-name: </span>{{ show.infouser.userlastname}} <br>
+      <span>Telephone: </span><br>
+      <span>E-mail: </span>{{ show.infouser.email}}<br>
+      <span>Favorite dish: </span>{{ show.infouser.short_name}}<br>
+      <div class="menu-item-photo-spec">
+        <img class="img-responsive"
+             width="250"
+             height="150"
+             ng-src="{{show.basePath}}/images/{{show.infouser.short_name}}.jpg"
+             alt="Item photo"><br>
+      </div>
+
+      <!-- {{show.favoriteItem}} -->
+      <show-info showinfo="show.favoriteItem"></show-info>
+      
+  </div>
+
+
+  <span ng-if="show.signUpMessage"><p>PLEASE, SIGN UP <a href="#" ui-sref="public.signup">HERE </a> FIRST, TO SEE THE INFORMATION</p></span><br>
+
+</div>
+
+<button class="buttons" type="button" name="btn-information-home"  ui-sref="public.home">
+  Home
+</button>

@@ -15,10 +15,12 @@ function routeConfig ($stateProvider) {
       abstract: true,
       templateUrl: 'src/public/public.html'
     })
+    //HOME
     .state('public.home', {
       url: '/',
       templateUrl: 'src/public/home/home.html'
     })
+    //MENU
     .state('public.menu', {
       url: '/menu',
       templateUrl: 'src/public/menu/menu.html',
@@ -30,6 +32,7 @@ function routeConfig ($stateProvider) {
         }]
       }
     })
+    //MENU ITEMS
     .state('public.menuitems', {
       url: '/menu/{category}',
       templateUrl: 'src/public/menu-items/menu-items.html',
@@ -40,6 +43,30 @@ function routeConfig ($stateProvider) {
           return MenuService.getMenuItems($stateParams.category);
         }]
       }
+    })
+    //INFORMATION
+    .state('public.information', {
+      url: '/information',
+      templateUrl: 'src/public/information/information.html',
+      controller: 'ShowInformationController',
+      controllerAs: 'show',
+      resolve: {
+      toshow: ['ShowInformationService', function (ShowInformationService){
+        return ShowInformationService.getInformation();
+      }]
+    }
+    })
+    //SIGN UP
+    .state('public.signup', {
+      url: '/sign-up',
+      templateUrl: 'src/public/sign-up/sign-up.html',
+      controller: 'SignUpController',
+      controllerAs: 'sign'
+      //resolve: {
+        //menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
+          //return MenuService.getMenuItems($stateParams.category);
+        //}]
+      //}
     });
 }
 })();

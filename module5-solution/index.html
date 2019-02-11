@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/restaurant.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/personalized.css">
   </head>
   <body ng-app="restaurant" ng-strict-di>
 
@@ -51,11 +52,11 @@
                   <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
               </li>
               <li>
-                <a href="">
+                <a ui-sref="public.information">
                   <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> My Info</a>
               </li>
               <li>
-                <a href="#">
+                <a ui-sref="public.signup">
                   <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Sign Up</a>
               </li>
               <li id="phone" class="hidden-xs">
@@ -119,11 +120,13 @@
     <!-- Main Restaurant Module -->
     <script src="src/restaurant.module.js"></script>
 
+
     <!-- Common Module -->
     <script src="src/common/common.module.js"></script>
     <script src="src/common/loading/loading.component.js"></script>
     <script src="src/common/loading/loading.interceptor.js"></script>
     <script src="src/common/menu.service.js"></script>
+    <script src="src/common/showinformation.service.js"></script>
 
     <!-- Public Module -->
     <script src="src/public/public.module.js"></script>
@@ -132,6 +135,10 @@
     <script src="src/public/menu-category/menu-category.component.js"></script>
     <script src="src/public/menu-items/menu-items.controller.js"></script>
     <script src="src/public/menu-item/menu-item.component.js"></script>
+    <script src="src/public/sign-up/sign-up.controller.js"></script>
+    <script src="src/public/sign-up/sign-up.component.js"></script>
+    <script src="src/public/information/information.controller.js"></script>
+    <script src="src/public/information/information.component.js"></script>
 
     <!-- ADMIN SITE -->
 
