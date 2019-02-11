@@ -6,7 +6,7 @@
   <div ng-if="show.showcontent" class="itemsToDisplay">
       <span>Name: </span>{{ show.infouser.username}} <br>
       <span>Last-name: </span>{{ show.infouser.userlastname}} <br>
-      <span>Telephone: </span><br>
+      <span>Telephone: </span>{{show.infouser.phone}}<br>
       <span>E-mail: </span>{{ show.infouser.email}}<br>
       <span>Favorite dish: </span>{{ show.infouser.short_name}}<br>
       <div class="menu-item-photo-spec">
@@ -19,7 +19,7 @@
 
       <!-- {{show.favoriteItem}} -->
       <show-info showinfo="show.favoriteItem"></show-info>
-      
+
   </div>
 
 

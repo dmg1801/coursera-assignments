@@ -56,11 +56,13 @@
 
           <input type="text" name="phone" placeholder="Phone ###-###-####"
             ng-model="sign.user.phone"
-            pattern="(\d{3})-(\d{3})-(\d{4})">
+            pattern="(\d{3})-(\d{3})-(\d{4})"
+            required>
+            <span ng-if="signForm.$invalid">* </span>
             <span class="filledData">{{sign.user.phone}}</span>
             <br>
             <span ng-if="signForm.phone.$invalid && signForm.phone.$touched">
-              Phone must be in the format ###-###-####.
+              Phone must be in the format ###-###-#### with 10 digits.
             </span>
             <br>
 
@@ -88,9 +90,6 @@
             ng-disabled="signForm.$invalid"
             ng-click="sign.submit(sign.user.short_name)">Submit</button>
 
-            <div style="margin-top: 10px;">
-              Form ready to submit? {{ signForm.$valid }}
-            </div>
             <br>
             <span ng-if="signForm.$invalid" class="filledData">please enter all required fields</span>
             <span ng-if="signForm.$invalid"> (*)</span>
@@ -103,7 +102,7 @@
       <p class="succesMessage"> All the data provided has been saved on the "My Info" seccion</p><br>
       <span>Name: </span>{{ sign.user.username}} <br>
       <span>Last-name: </span>{{ sign.user.userlastname}} <br>
-      <span>Telephone: </span><br>
+      <span>Telephone: </span>{{ sign.user.phone }}<br>
       <span>E-mail: </span>{{ sign.user.email}}<br>
       <span>Favorite dish: </span>{{ sign.user.short_name}}<br>
       <div class="menu-item-photo-spec">
