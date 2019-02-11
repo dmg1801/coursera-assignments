@@ -5,6 +5,14 @@ body {
   font-family: 'Oxygen', sans-serif;
 }
 
+input {
+  font-size: 16px;
+  color: #61122f;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: bold;
+}
+
+
 .initial-loading {
   margin-top: 60px;
 }
